@@ -24,11 +24,9 @@ class App extends Component {
     return Math.round((good / total) * 100);
   };
 
-  onFeedbackChanging = event => {
-    const feedbackType = event.target.id;
-    // console.log(feedbackType);
+  onFeedbackChanging = feedbackOption => {
     this.setState(prevState => ({
-      [feedbackType]: (prevState[feedbackType] += 1),
+      [feedbackOption]: (prevState[feedbackOption] += 1),
     }));
   };
 
@@ -41,16 +39,16 @@ class App extends Component {
       <>
         <GlobalStyle />
         <div>
-          <Section title={'Please, leave Your feedback'}>
+          <Section title="Please, leave Your feedback">
             <FeedbackOptions
               options={options}
               onLeaveFeedback={this.onFeedbackChanging}
             />
           </Section>
 
-          <Section title={'Statistic'}>
+          <Section title="Statistic">
             {totalMarksCount === 0 ? (
-              <Notification message={'There are no any feedback yet '} />
+              <Notification message="There are no any feedback yet " />
             ) : (
               <Statistics
                 good={good}

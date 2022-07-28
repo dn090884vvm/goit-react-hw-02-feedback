@@ -5,12 +5,13 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ButtonStyle>
       {options.map(option => {
+        // console.log(option);
         return (
           <Button
             type="button"
             key={option}
             id={option}
-            onClick={onLeaveFeedback}
+            onClick={() => onLeaveFeedback(option)}
           >
             {option}
           </Button>
